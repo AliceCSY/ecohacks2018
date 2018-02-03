@@ -16,7 +16,7 @@ public class GamePanel extends JPanel {
 	private static final String RECYCLABLES = "Recyclables";
 	private static final String WASTE = "Waste";
 
-	private static final int TIME_LIMIT = 120;
+	private static final int TIME_LIMIT = 10;
 
 	private ImageIcon[] images;
 	private String[] answers;
@@ -172,7 +172,19 @@ public class GamePanel extends JPanel {
 	}
 
 	private void showEndGameMessage () {
-		JOptionPane.showMessageDialog(null, "Time's up! You ended the game with " + score + " points.", "Game over!", JOptionPane.INFORMATION_MESSAGE); 
+		JOptionPane.showMessageDialog(null, "Time's up! You ended the game with " + score + " points.", "Game over!", JOptionPane.INFORMATION_MESSAGE);
+		saveScore();
+	}
+
+	private void saveScore () {
+		try {
+			BufferedWriter out = new BufferedWriter (new FileWriter ("idontcare.txt", true));
+			out.newLine();
+			out.write(score + "");
+			out.close();
+		} catch (Exception e) {
+
+		}
 	}
 
 	private class ButtonHandler implements ActionListener {
