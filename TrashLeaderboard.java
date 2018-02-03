@@ -108,9 +108,9 @@ public class TrashLeaderboard extends JPanel{
       backButton.setAlignmentX(Component.CENTER_ALIGNMENT);
       add(backButton);
       
-      JFrame frame = new JFrame();
+      /*JFrame frame = new JFrame();
       frame.add(this);
-      frame.setVisible(true);
+      frame.setVisible(true);*/
    }
    
    private void loadFromFile(){
