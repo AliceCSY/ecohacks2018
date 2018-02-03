@@ -178,7 +178,7 @@ public class GamePanel extends JPanel {
 
 	private void saveScore () {
 		try {
-			BufferedWriter out = new BufferedWriter (new FileWriter ("idontcare.txt", true));
+			BufferedWriter out = new BufferedWriter (new FileWriter ("TrashLeaderboard.txt", true));
 			out.newLine();
 			out.write(score + "");
 			out.close();
