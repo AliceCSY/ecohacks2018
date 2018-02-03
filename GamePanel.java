@@ -12,6 +12,7 @@ import java.util.TimerTask;
 
 public class GamePanel extends JPanel {
 	private static final String CONFIG_FILE = "config.txt";
+	private static final String LEADERBOARD_FILE = "TrashLeaderboard.txt";
 	private static final String PAPER = "Paper";
 	private static final String RECYCLABLES = "Recyclables";
 	private static final String WASTE = "Waste";
@@ -172,13 +173,14 @@ public class GamePanel extends JPanel {
 	}
 
 	private void showEndGameMessage () {
-		JOptionPane.showMessageDialog(null, "Time's up! You ended the game with " + score + " points.", "Game over!", JOptionPane.INFORMATION_MESSAGE);
+		//JOptionPane.showMessageDialog(null, "Time's up! You ended the game with " + score + " points.", "Game over!", JOptionPane.INFORMATION_MESSAGE);
 		saveScore();
+		TrashFrame.gameOver(score);
 	}
 
 	private void saveScore () {
 		try {
-			BufferedWriter out = new BufferedWriter (new FileWriter ("TrashLeaderboard.txt", true));
+			BufferedWriter out = new BufferedWriter (new FileWriter (LEADERBOARD_FILE, true));
 			out.newLine();
 			out.write(score + "");
 			out.close();
